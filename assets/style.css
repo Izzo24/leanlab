@@ -40,7 +40,7 @@ p{text-wrap:pretty}
 .nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .nav__in{display:flex;align-items:center;gap:20px;height:72px}
 .brand{display:flex;align-items:center;gap:11px}
-.brand__tx{display:flex;flex-direction:column;line-height:1.05}
+.brand__tx{display:flex;flex-direction:column;line-height:1.1;gap:4px}
 .brand__tx b{font-size:1.18rem;font-weight:900;letter-spacing:.02em}
 .brand__tx i{font-family:var(--sora);font-style:normal;font-weight:700;font-size:.62rem;letter-spacing:.24em;color:var(--green-d)}
 .menu{display:flex;gap:6px;margin-left:auto}
