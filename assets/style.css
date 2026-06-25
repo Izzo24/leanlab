@@ -226,7 +226,12 @@ section{padding:84px 0}
 @media(max-width:560px){
   .grid--4,.grid--3{grid-template-columns:1fr}
   .wrap{padding:0 18px}
-  .stats{grid-template-columns:1fr 1fr}
+  /* 數字卡：縮小字體與內距、允許收縮，避免「120kcal」等長數字撐破窄欄溢出。 */
+  .stats{grid-template-columns:1fr 1fr;gap:12px}
+  .stat{min-width:0;padding:22px 12px}
+  .stat .num{font-size:clamp(1.6rem,8.5vw,2.1rem);white-space:nowrap}
+  .stat .num i{font-size:.5em}
+  .stat span{font-size:.86rem}
   .plan--featured{transform:none}
   .trust{gap:20px}
   .foot__in{grid-template-columns:1fr 1fr}
