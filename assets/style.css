@@ -226,12 +226,7 @@ section{padding:84px 0}
 @media(max-width:560px){
   .grid--4,.grid--3{grid-template-columns:1fr}
   .wrap{padding:0 18px}
-  /* 數字卡：縮小字體與內距、允許收縮，避免「120kcal」等長數字撐破窄欄溢出。 */
-  .stats{grid-template-columns:1fr 1fr;gap:12px}
-  .stat{min-width:0;padding:22px 12px}
-  .stat .num{font-size:clamp(1.6rem,8.5vw,2.1rem);white-space:nowrap}
-  .stat .num i{font-size:.5em}
-  .stat span{font-size:.86rem}
+  .stats{grid-template-columns:1fr 1fr}
   .plan--featured{transform:none}
   .trust{gap:20px}
   .foot__in{grid-template-columns:1fr 1fr}
@@ -243,7 +238,7 @@ section{padding:84px 0}
 :root{--c-accent:#ff7a3c;--c-accent2:#2f9e63;--c-ink:#16241d;--c-muted:#46584f;--c-panel:#ffffff;--c-soft:#f7faf8;--c-line:#e1ebe5;--c-onacc:#ffffff}
 
 /* ===== 購物車 / 結帳 ===== */
-.cartbtn{position:fixed;top:14px;right:24px;z-index:150;box-shadow:0 6px 20px rgba(0,0,0,.3);display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;border:1.5px solid var(--c-line);background:var(--c-panel);color:var(--c-ink);cursor:pointer;transition:.2s;flex:none}
+.cartbtn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;border:1.5px solid var(--c-line);background:var(--c-panel);color:var(--c-ink);cursor:pointer;transition:.2s;flex:none}
 .cartbtn:hover{color:var(--c-accent);border-color:var(--c-accent)}
 .cartbtn__n{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:var(--c-accent);color:var(--c-onacc);font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1;transform:scale(0);transition:.2s}
 .cartbtn.has .cartbtn__n{transform:scale(1)}
@@ -317,17 +312,16 @@ section{padding:84px 0}
 .menu{margin-left:auto;gap:clamp(3px,.55vw,9px)}
 .menu a{padding:8px 12px}
 .nav__cta{margin-left:16px}
+.cartbtn{margin-left:8px}
 
 @media(max-width:1080px){.menu{display:none}.burger{display:flex}}
-/* 手機版浮動鈕｜肌食所：圓角方形 squircle・俐落運動感。 */
-@media(max-width:860px){
-  .cartbtn{top:auto;right:18px;bottom:18px;width:56px;height:56px;border-radius:18px;
-    background:var(--c-accent);color:#fff;border:0;
-    box-shadow:0 8px 22px rgba(0,0,0,.25)}
-  .cartbtn:hover{color:#fff;transform:translateY(-2px)}
-  .cartbtn svg{width:25px;height:25px}
-  .cartbtn__n{top:-3px;right:-3px;border-radius:8px;border:2px solid #fff}
-  .totop{bottom:86px;right:21px}
-}
-/* 手機版：購物車鈕移出 nav 後，漢堡鈕需自行靠右（原本靠 menu/cart 推右）。 */
-@media(max-width:1080px){ .burger{margin-left:auto} }
+
+
+/* ===== 標準 header：漢堡左／Logo置中／購物車右／抽屜選單（覆寫，2026-06-25） ===== */
+.nav__in{justify-content:space-between;position:relative;gap:14px}
+.nav__in .brand{position:absolute;left:50%;transform:translateX(-50%);margin:0}
+.burger{display:flex!important;flex:none;margin-left:0!important}
+.menu{display:none!important;margin-left:0!important}
+.menu.open{display:flex!important;position:fixed;inset:72px 0 auto 0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);padding:10px 24px 22px;box-shadow:var(--shadow);transform:none!important;z-index:99}
+.menu.open a{padding:13px 6px;font-size:1.05rem;border-bottom:1px solid var(--line)}
+.cartbtn{margin-left:0!important}
